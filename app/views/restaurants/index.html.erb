@@ -1,10 +1,13 @@
-<h2>Liste des bonnes adresses</h2>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= link_to restaurant.name, restaurant_path(restaurant) %> - <%= restaurant.address %>
+<!-- <h2>Liste des bonnes adresses</h2> -->
+<% @restaurants.each do |restaurant| %>
+  <ul class="list-group list-group-flush list-group-horizontal">
+    <li class="list-group-item text-start flex-fill">
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
     </li>
-  <% end %>
-</ul>
+    <li class="list-group-item text-end flex-fill">
+      <%= restaurant.address %>
+    </li>
+  </ul>
+<% end %>
 <br/>
-<%= link_to 'Créer une nouvelle adresse', new_restaurant_path %>
+<%= link_to 'Créer une nouvelle adresse', new_restaurant_path, class: 'btn btn-primary' %>
